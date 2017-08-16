@@ -1,0 +1,41 @@
+{% extends "master.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="bg-violet">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>
+					<a class="category-title" href="{{url_for('showCatalog')}}" title="All Categories">
+						All Categories
+					</a>
+				</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>{{category.name}} <span class="badge">Displaying {{items|length}} Items</span></h3>
+
+			{% if category.user_id == session['user_id'] %}
+			<a href="{{url_for('editCategory',category_id = category.id)}}">Edit</a> | 
+			<a href="{{url_for('deleteCategory',category_id = category.id)}}">Delete</a>
+			{% endif%}
+			<div class="list-group">
+				{% for item in items %}
+				<a class="list-group-item" href = "{{url_for('showItem',item_id  = item.id,category_id = item.category_id)}}">
+					{{item.name}}
+				</a>
+				{% else %}
+				<div class="list-group-item">Empty Category , Nothing to Show </div>
+				{% endfor %}
+			</div>
+			{% if session['user_id'] == category.user_id %}
+			<a class="btn btn-default" href="{{url_for('newItem',category_id = category.id)}}"> Add New Item </a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="margin-top-20">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Categories</h3>
+					</div>
+					<div class="list-group">
+						{% for category in categories %}
+						<a class="list-group-item" href = "{{url_for('showCategory', category_id = category.id)}}">{{category.name}}<span class="badge">{{category.items|length}} Items</span></a>
+						{% else%}
+						<div class="list-group-item" >No Categories Added Yet</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				{%if 'username' in session %}
+				<a href="{{url_for('newCategory')}}" class="btn btn-default">Add New Category</a>
+				{% endif %}
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Latest Items</h3>
+					</div>
+					<div class="list-group">
+						{% for item in items %}
+
+						<a class="list-group-item" 
+						href = "{{url_for('showItem', category_id = item.category_id,item_id = item.id)}}">
+						{{item.name}} <span class="badge grey">{{item.category.name}}</span>
+					</a>
+					{% else%}
+					<div class="list-group-item" >No Items Added Yet</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

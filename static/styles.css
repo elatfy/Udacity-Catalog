@@ -1,0 +1,49 @@
+* {
+    font-family: 'Zilla Slab', serif;
+}
+
+.navbar-default {
+    background-color: #005689;
+    position: relative;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.navbar-right {
+    margin-top: 10px
+}
+
+.navbar-right a.btn {
+    background-color: transparent;
+    color: #aad8f1;
+    border: none;
+    font-weight: 700;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+
+.bg-violet {
+    margin-top: -20px;
+    background-color: #951c55;
+}
+
+.category-title {
+    color: #fdadba;
+    font-weight: 700
+}
+
+.category-title:hover {
+    color: #fdadba;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}

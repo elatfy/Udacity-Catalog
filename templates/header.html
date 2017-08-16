@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{url_for('showCatalog')}}"">//Whole Earth Catalog</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      
+      
+      <div class="navbar-right">
+        {%if 'username' not in session %}
+        <a href="{{url_for('showLogin')}}"" class="btn btn-default">Login</a>
+        {% else %}
+        <a href="{{url_for('disconnect')}}"" class="btn btn-default">Logout</a>
+        {% endif %}
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
